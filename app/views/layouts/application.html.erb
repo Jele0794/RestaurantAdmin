@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NuevoRestAdmin</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar-fixed">
+                  <nav>
+                    <div class="nav-wrapper">
+                        <%= link_to "Restaurante", root_path, class: "brand-logo" %>
+                      <ul class="right hide-on-med-and-down">
+                        <li><%= link_to "Inicio", root_path %></li>
+                        <li><%= link_to "Órdenes Cerradas", closed_list_orders_path %></li>
+                        <li><%= link_to "Platillos", meals_path %></li>
+                        <li><%= link_to "Ingredientes", ingredients_path %></li>
+
+                        <!-- Dropdown Trigger -->
+                        <li><%= link_to "Nueva Orden", orders_path, class: "waves-effect waves-light btn", method: :post %></li>
+                      </ul>
+                    </div>
+                  </nav>
+              </div>
+              <% if flash[:alert] %>
+                    <script type="text/javascript">
+                        Materialize.toast('<%= flash[:alert] %>', 3500)
+                    </script>
+              <% end %>
+              <div class="container">
+                  <%= yield %>
+              </div>
+
+</body>
+</html>

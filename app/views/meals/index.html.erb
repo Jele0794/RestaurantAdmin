@@ -1,0 +1,24 @@
+<h2>Platillos</h2>
+<%= link_to "Nuevo Platillo", new_meal_path, class: "waves-effect waves-light btn right" %>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @meals.each do |meal| %>
+        <tr>
+            <td><%= meal.id %></td>
+            <td><%= meal.nombre %></td>
+            <td><%= truncate(meal.descripcion, :length => 65) %></td>
+            <td>$ <%= meal.precio %></td>
+            <td><%= link_to "Ver", meal, class: "waves-effect waves-light btn" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

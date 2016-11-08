@@ -1,0 +1,38 @@
+<h2><%= @meal.nombre %></h2>
+<h3>Descripcion:</h3>
+<p><%= @meal.descripcion %></p>
+<h3>Precio: <span class="pink-text text-lighten-2">$ <%= @meal.precio.to_s %></span></h3>
+
+<h4>Ingredientes:</h4>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th class="center">Platillo</th>
+            <th class="center">Cantidad Requerida</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @meal.ingredient_per_meals.each do |ingredient_per_meal| %>
+        <% ingredient = ingredient_per_meal.ingredient %>
+        <tr>
+            <td><%= ingredient_per_meal.ingredient_id %></td>
+            <td class="center"><%= ingredient.nombre %></td>
+            <td class="center"><%= ingredient_per_meal.amount_of_ingredient.to_s + " " + ingredient.unidad %></td>
+            <td><%= link_to "Ver", ingredient_path(ingredient), class: "waves-effect waves-light btn" %></td>
+            <td><%= link_to "Editar", edit_meal_ingredients_per_path(@meal, ingredient_per_meal), class: "waves-effect waves-light btn"%></td>
+            <td><%= link_to "Eliminar", meal_ingredients_per_path(@meal, ingredient_per_meal), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "waves-effect waves-light btn red" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<hr>
+<div class="right">
+    <%= link_to "Nuevo Ingrediente", new_meal_ingredients_per_path(@meal), class: "waves-effect waves-light btn green"%>
+    <%= link_to "Editar Platillo", edit_meal_path(@meal), class: "waves-effect waves-light btn blue"%>
+    <%= link_to "Eliminar", meal_path(@meal), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "waves-effect waves-light btn red"%>
+</div>
+<br>
+<br>

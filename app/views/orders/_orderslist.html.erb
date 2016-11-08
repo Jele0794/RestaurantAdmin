@@ -1,0 +1,63 @@
+<% if @orders.size > 0 %>
+    <% contador = 0 %>
+    <% @orders.each do |order| %>
+    <% if contador == 0 %>
+        <div class="row">
+    <% end %>
+    <div class="col s12 m6">
+        <div class="card horizontal">
+          <div class="card-image">
+
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+                <h4 class="right">Orden Número: <span class="pink-text text-lighten-2"><%= order.id %></span></h4>
+                <h6><%= order.created_at.strftime("%d/%m/%y") %></h6>
+                <table class="striped">
+                    <thead>
+                        <tr>
+                            <th class="center">Cantidad</th>
+                            <th>Platillo</th>
+                            <th>Precio Unitario</th>
+                            <th>Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% order.order_details.each do |order_detail|%>
+                        <tr>
+                            <td class="center"><%= order_detail.amount_of_meals %></td>
+                            <td><%= order_detail.meal.nombre %></td>
+                            <td class="center"><%= order_detail.meal.precio %></td>
+                            <td class=""><%= order_detail.subtotal_per_meals %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="right">
+                    <h4>Total: <span class="pink-text text-lighten-2"><%= order.order_details.sum(:subtotal_per_meals) %></span></h4>
+                </div>
+            </div>
+            <div class="card-action ">
+                <div class="right">
+                    <%= link_to "Cerrar Orden", close_order_path(order), class: "waves-effect waves-light btn green order-btns" %>
+                    <%= link_to "Editar", order, class: "waves-effect waves-light btn blue order-btns" %>
+                    <%= link_to "Cancelar", order_path(order), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "waves-effect waves-light btn red order-btns"%>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <% if contador != 2 %>
+            <% contador += 1 %>
+        <% end %>
+        <% if contador == 2 %>
+            </div>
+            <% contador = 0 %>
+        <% end %>
+    <% end %>
+<% else %>
+
+    <h3 class="center grey-text text-darken-1">No hay órdenes en esta lista</h3>
+
+<% end %>

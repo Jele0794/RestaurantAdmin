@@ -1,0 +1,32 @@
+<h3>Orden número: <%= @order.id %></h3>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Cantidad</th>
+            <th>Platillo</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @meals.each do |meal| %>
+            <% order_detail = @order_details.find_by(meal_id: meal.id) %>
+        <tr>
+            <td><%= order_detail.amount_of_meals %></td>
+            <td><%= meal.nombre %></td>
+            <td>$ <%= meal.precio %></td>
+            <td>$ <%= order_detail.subtotal_per_meals %></td>
+            <td><%= link_to "Editar", edit_order_detail_path(@order, order_detail), class: "waves-effect waves-light btn" %></td>         
+            <td><%= link_to "Eliminar", order_detail_path(@order, order_detail), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "waves-effect waves-light btn" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<hr>
+
+<h4 class="left">Total: <span class="pink-text text-lighten-2"><%= @order.order_details.sum(:subtotal_per_meals) %></span></h4>
+<div class="right">
+    <%= link_to "Regresar", root_path, class: "waves-effect waves-light btn"  %>
+    <%= link_to "Agregar Platillo", new_order_detail_path(@order), class: "waves-effect waves-light btn"  %>
+</div>

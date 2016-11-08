@@ -1,0 +1,12 @@
+<%= label_tag :meal, "Platillo" %>
+<% if @detail != nil %>
+    <%= collection_select :meal, :id, Meal.all, :id, :nombre, prompt: "Selecciona un nuevo platillo.",
+    selected: @detail.meal_id%><br>
+    <%= label_tag :amount_of_meals, "Cantidad" %>
+    <%= text_field_tag :amount_of_meals, @detail.amount_of_meals.to_s %><br>
+<% else %>
+    <%= collection_select :meal, :id, Meal.all, :id, :nombre, prompt: "Selecciona un nuevo platillo." %><br>
+    <%= label_tag :amount_of_meals, "Cantidad" %>
+    <%= text_field_tag :amount_of_meals, '1' %><br>
+<% end %>
+<%= submit_tag "Guardar", class: "waves-effect waves-light btn" %>

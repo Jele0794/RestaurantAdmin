@@ -1,0 +1,10 @@
+<h2><%= @ingredient.nombre %></h2>
+<h3>Descripcion:</h3>
+<p><%= @ingredient.descripcion %></p>
+<h3>Cantidad: <span class="pink-text text-lighten-2"><%= @ingredient.cantidad.to_s + " " + @ingredient.unidad %></span></h3>
+
+<hr>
+<div class="right">
+    <%= link_to "Editar", edit_ingredient_path(@ingredient), class: "waves-effect waves-light btn blue"%>
+    <%= link_to "Eliminar", ingredient_path(@ingredient), method: :delete, data: {confirm: "¿Estás seguro?"}, class: "waves-effect waves-light btn red"%>
+</div>

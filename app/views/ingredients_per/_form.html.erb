@@ -1,0 +1,12 @@
+<%= label_tag :ingredient, "Ingrediente" %>
+<% if @ingredient_per != nil %>
+    <%= collection_select :ingredient, :id, Ingredient.all, :id, :nombre, prompt: "Selecciona un ingrediente.",
+    selected: @ingredient_per.ingredient_id%><br>
+    <%= label_tag :amount_of_ingredient, "Cantidad que se Utiliza" %>
+    <%= text_field_tag :amount_of_ingredient, @ingredient_per.amount_of_ingredient.to_s %><br>
+<% else %>
+    <%= collection_select :ingredient, :id, Ingredient.all, :id, :nombre, prompt: "Selecciona un ingrediente." %><br>
+    <%= label_tag :amount_of_ingredient, "Cantidad que se Utiliza" %>
+    <%= text_field_tag :amount_of_ingredient, '1' %><br>
+<% end %>
+<%= submit_tag "Guardar", class: "waves-effect waves-light btn" %>

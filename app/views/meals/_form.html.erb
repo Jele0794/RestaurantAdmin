@@ -1,0 +1,13 @@
+<%= form_for @meal do |f| %>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %><br>
+    <br>
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion, class: "materialize-textarea" %><br>
+    <br>
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %><br>
+    <br>
+
+    <%= f.submit "Guardar", class: "waves-effect waves-light btn right"%>
+<% end %>

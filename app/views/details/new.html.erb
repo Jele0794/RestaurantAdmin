@@ -1,0 +1,5 @@
+<h3>Orden Número: <%= @order.id %></h3>
+<h4>Nuevo Platillo</h4>
+<%= form_tag add_meal_path do%>
+<%= render 'form' %>
+<% end %>

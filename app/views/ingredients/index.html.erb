@@ -1,0 +1,24 @@
+<h2>Ingredientes</h2>
+<%= link_to "Nuevo Ingrediente", new_ingredient_path, class: "waves-effect waves-light btn right" %>
+
+<table class="striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @ingredients.each do |ingredient|  %>
+        <tr>
+            <td><%= ingredient.id %></td>
+            <td><%= ingredient.nombre %></td>
+            <td><%= truncate(ingredient.descripcion, :length => 65) %></td>
+            <td><%= ingredient.cantidad.to_s + " " + ingredient.unidad %></td>
+            <td><%= link_to "Ver", ingredient, class: "waves-effect waves-light btn"%></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
