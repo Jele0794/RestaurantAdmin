@@ -58,7 +58,15 @@ $ bundle install
 ```
 6. Ahora se necesita crear la base de datos en [MySQL](https://www.mysql.com/), previamente descargado. Además, se necesita crear un usuario (en MySQL) con el nombre **restaurant** y la contraseña **rest123**. Estos valores pueden ser modificados en el archivo [config/database.yml](./config/database.yml)
 
-7. Si no existe error, al finalizar corre el comando `rails server` y desde un explorador, dirígete a [localhost con puerto 3000](http://localhost:3000).
+7. A continuación se necesita crear la base de datos con el comando `rake db:create && rake db:migrate`
+
+8. Si no existe error, al finalizar corre el comando `rails server` y desde un explorador, dirígete a [localhost con puerto 3000](http://localhost:3000).
+
+* Nota: El proyecto viene con algunos datos de prueba en el archivo [seeds.rb](./db/seeds.rb) que podrás subir a la base de datos con el siguiente comando:
+
+```shell
+$ rake db:migrate:reset && rake db:seed
+```
 
 ## Levantar Servicio en Windows
 
