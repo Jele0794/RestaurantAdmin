@@ -40,27 +40,28 @@ La aplicación se desarrolló en el siguiente ambiente:
     ```
     - Toma en cuenta que .bash_profile puede ser .zshrc (si usas zsh) o .bashrc
 2. Instala ruby con el siguiente comando
-```shell
-$ rbenv install 2.2.4
-$ rbenv global 2.2.4
-```
+    ```shell
+    $ rbenv install 2.2.4
+    $ rbenv global 2.2.4
+    ```
 
 3. Instala la gema 'bundler'
-```shell
-$ gem install bundler
-```
+    ```shell
+    $ gem install bundler
+    ```
 
 4. Dirígete al directorio del proyecto que clonaste anteriormente de git. (`$ cd /path/to/project`)
 
 5. Corre el siguiente comando:
-```shell
-$ bundle install
-```
+    ```shell
+    $ bundle install
+    ```
 6. Ahora se necesita crear la base de datos en [MySQL](https://www.mysql.com/), previamente descargado. Además, se necesita crear un usuario (en MySQL) con el nombre **restaurant** y la contraseña **rest123**. Estos valores pueden ser modificados en el archivo [config/database.yml](./config/database.yml)
 
 7. A continuación se necesita crear la base de datos con el comando `rake db:create && rake db:migrate`
 
 8. Si no existe error, al finalizar corre el comando `rails server` y desde un explorador, dirígete a [localhost con puerto 3000](http://localhost:3000).
+
 
 * Nota: El proyecto viene con algunos datos de prueba en el archivo [seeds.rb](./db/seeds.rb) que podrás subir a la base de datos con el siguiente comando:
 
