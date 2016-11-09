@@ -71,4 +71,25 @@ $ rake db:migrate:reset && rake db:seed
 
 ## Levantar Servicio en Windows
 
-1. Descarga [RailsInstaller](http://railsinstaller.org/en)
+1. Descarga [RailsInstaller 2.2 para windows](http://railsinstaller.org/en).
+
+2. Corre el ejecutable y sigue las instrucciones hasta instalar.
+
+3. Sigue los pasos mencionados anteriormente (desde el número 4), para proceder con la configuración.
+
+### Correr un Script Cada Vez que se Realize Log In
+Los siguientes pasos provienen de una respuesta en [SuperUser](http://superuser.com/questions/15596/automatically-run-a-script-when-i-log-on-to-windows).
+
+1. Start > Administrative Tools > Task Scheduler
+
+2. Panel Izquierdo: Selecciona Task Scheduler Library
+
+3. Panel Derecho: click Create Task
+
+4. in the Create Task dialog:
+    * General tab -- Escribe el nombre de la tarea
+    * Triggers tab -- click New. Luego selecciona On workstation unlock
+    * Action tab -- click New. Luego click Browse para buscar tu archivo *(Este se encuentra en esta carpeta con el nombre "[run_rails_s_win.bat][bat]")*
+    * Conditions tab -- Remueve la selección "Start the task only if the computer is on AC power"
+
+[bat]: ./run_rails_s_win.bat
