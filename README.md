@@ -75,7 +75,31 @@ $ rake db:migrate:reset && rake db:seed
 
 2. Corre el ejecutable y sigue las instrucciones hasta instalar.
 
-3. Sigue los pasos mencionados anteriormente (desde el número 4), para proceder con la configuración.
+3. Descargar (MySQL Installer)[http://dev.mysql.com/downloads/mysql/] y en él, instalar **MySQL Server**.
+
+4. Revisar qué versión de Ruby se encuentra instalada con el siguiente comando. (Seguramente será de 32 bits)
+	```shell
+	ruby -e "puts 1.size"
+	```
+
+5. Descargar la versión de 32 bits de *[MySQL][mysqlconnector]*
+
+6. Copiar carpeta en raíz y renombrar a '*mysqlconnector*'.
+
+7. Instalar gema **mysql2** con el siguiente comando:
+	```shell
+	gem install mysql2 --platform=ruby -- '--with-mysql-dir="C:\mysqlconnector"'
+	```
+
+8. Copiar el archivo **libmysql.dll** de **mysqlconnector/lib** a **railsInstaller/ruby/bin**
+
+9. Copiar archivo *[database.yml][database]* y *[Gemfile][gemfile]* del directorio llamado windows (dentro de este proyecto).
+
+10. Ejecutar: `$ bundle install`
+
+11. Ejecutar: `$ rails s`
+
+12. Sigue los pasos mencionados anteriormente (desde el número 8), para proceder con la configuración.
 
 ### Correr un Script Cada Vez que se Realize Log In
 Los siguientes pasos provienen de una respuesta en [SuperUser](http://superuser.com/questions/15596/automatically-run-a-script-when-i-log-on-to-windows).
@@ -92,4 +116,7 @@ Los siguientes pasos provienen de una respuesta en [SuperUser](http://superuser.
     * Action tab -- click New. Luego click Browse para buscar tu archivo *(Este se encuentra en esta carpeta con el nombre "[run_rails_s_win.bat][bat]")*
     * Conditions tab -- Remueve la selección "Start the task only if the computer is on AC power"
 
+[gemfile]: .windows/Gemfile
+[database]: ./windows/database.yml
 [bat]: ./run_rails_s_win.bat
+[mysqlconnector]: http://dev.mysql.com/downloads/connector/c/
