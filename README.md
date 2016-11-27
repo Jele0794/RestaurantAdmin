@@ -75,7 +75,7 @@ $ rake db:migrate:reset && rake db:seed
 
 2. Corre el ejecutable y sigue las instrucciones hasta instalar.
 
-3. Descargar [MySQL Installer][http://dev.mysql.com/downloads/mysql/] y en él, instalar **MySQL Server**.
+3. Descargar [MySQL Installer](http://dev.mysql.com/downloads/mysql/) y en él, instalar **MySQL Server**.
 
 4. Revisar qué versión de Ruby se encuentra instalada con el siguiente comando. (Seguramente será de 32 bits)
 	```shell
