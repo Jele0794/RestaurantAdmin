@@ -75,7 +75,7 @@ $ rake db:migrate:reset && rake db:seed
 
 2. Corre el ejecutable y sigue las instrucciones hasta instalar.
 
-3. Descargar (MySQL Installer)[http://dev.mysql.com/downloads/mysql/] y en él, instalar **MySQL Server**.
+3. Descargar [MySQL Installer][http://dev.mysql.com/downloads/mysql/] y en él, instalar **MySQL Server**.
 
 4. Revisar qué versión de Ruby se encuentra instalada con el siguiente comando. (Seguramente será de 32 bits)
 	```shell
@@ -116,7 +116,7 @@ Los siguientes pasos provienen de una respuesta en [SuperUser](http://superuser.
     * Action tab -- click New. Luego click Browse para buscar tu archivo *(Este se encuentra en esta carpeta con el nombre "[run_rails_s_win.bat][bat]")*
     * Conditions tab -- Remueve la selección "Start the task only if the computer is on AC power"
 
-[gemfile]: .windows/Gemfile
+[gemfile]: ./windows/Gemfile
 [database]: ./windows/database.yml
 [bat]: ./run_rails_s_win.bat
 [mysqlconnector]: http://dev.mysql.com/downloads/connector/c/
