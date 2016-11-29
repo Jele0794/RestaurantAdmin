@@ -97,6 +97,8 @@ $ rake db:migrate:reset && rake db:seed
 
 10. Ejecutar: `$ bundle install`
 
+11. Ejecutar: `$ bundle update`
+
 11. Ejecutar: `$ rails s`
 
 12. Sigue los pasos mencionados anteriormente (desde el número 8), para proceder con la configuración.
